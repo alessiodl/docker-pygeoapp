@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-WORKDIR /app
+WORKDIR /app/src
 
 RUN apt-get update \
 	&& apt-get -y install gcc g++ software-properties-common \
@@ -13,6 +13,6 @@ RUN apt-get update \
 	&& apt-get -y install gdal-bin \
 	&& apt-get -y install libpq-dev libgdal-dev
 
-COPY . .
+COPY ./src .
 
 RUN pip install --no-cache-dir -r requirements.txt
